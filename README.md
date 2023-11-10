@@ -44,3 +44,10 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+make image and container
+docker build -t ecommerce-image .
+docker run --name ecommerce-container --rm -d -p 3000:3000 ecommerce-image
+
+
+docker run --name ecommerce-container --rm -v /Users/rahuljangir/Git/mern-ecom:/app -d -p 3000:3000 ecommerce-image
