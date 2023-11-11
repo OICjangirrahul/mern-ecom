@@ -2,9 +2,7 @@ import React, { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
-
-
-
+import { Link } from 'react-router-dom';
 
 
 export default function Product() {
@@ -14,7 +12,7 @@ export default function Product() {
     {
       id: 1,
       name: 'Basic Tee',
-      href: '#',
+      to: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
       imageAlt: "Front of men's Basic Tee in black.",
       price: '$35',
@@ -23,7 +21,7 @@ export default function Product() {
     {
       id: 2,
       name: 'Basic Tee',
-      href: '#',
+      to: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
       imageAlt: "Front of men's Basic Tee in black.",
       price: '$35',
@@ -32,7 +30,7 @@ export default function Product() {
     {
       id: 3,
       name: 'Basic Tee',
-      href: '#',
+      to: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
       imageAlt: "Front of men's Basic Tee in black.",
       price: '$35',
@@ -41,7 +39,7 @@ export default function Product() {
     {
       id: 4,
       name: 'Basic Tee',
-      href: '#',
+      to: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
       imageAlt: "Front of men's Basic Tee in black.",
       price: '$35',
@@ -52,11 +50,11 @@ export default function Product() {
     // More products...
   ]
   const sortOptions = [
-    { name: 'Most Popular', href: '#', current: true },
-    { name: 'Best Rating', href: '#', current: false },
-    { name: 'Newest', href: '#', current: false },
-    { name: 'Price: Low to High', href: '#', current: false },
-    { name: 'Price: High to Low', href: '#', current: false },
+    { name: 'Most Popular', to: '#', current: true },
+    { name: 'Best Rating', to: '#', current: false },
+    { name: 'Newest', to: '#', current: false },
+    { name: 'Price: Low to High', to: '#', current: false },
+    { name: 'Price: High to Low', to: '#', current: false },
   ]
 
   const filters = [
@@ -148,9 +146,9 @@ export default function Product() {
                     {/* <ul role="list" className="px-2 py-3 font-medium text-gray-900">
                       {subCategories.map((category) => (
                         <li key={category.name}>
-                          <a href={category.href} className="block px-2 py-3">
+                          <Link to={category.to} className="block px-2 py-3">
                             {category.name}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul> */}
@@ -234,8 +232,8 @@ export default function Product() {
                       {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
-                            <a
-                              href={option.href}
+                            <Link
+                              to={option.to}
                               className={classNames(
                                 option.current ? 'font-medium text-gray-900' : 'text-gray-500',
                                 active ? 'bg-gray-100' : '',
@@ -243,7 +241,7 @@ export default function Product() {
                               )}
                             >
                               {option.name}
-                            </a>
+                            </Link>
                           )}
                         </Menu.Item>
                       ))}
@@ -279,7 +277,7 @@ export default function Product() {
                 {/* <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
                   {subCategories.map((category) => (
                     <li key={category.name}>
-                      <a href={category.href}>{category.name}</a>
+                      <Link to={category.to}>{category.name}</Link>
                     </li>
                   ))}
                 </ul> */}
@@ -330,7 +328,7 @@ export default function Product() {
 
               {/* Product grid */}
               <div className="lg:col-span-3">
-               <div>
+                <div>
                   <div className="bg-white">
                     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
                       <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
@@ -348,10 +346,10 @@ export default function Product() {
                             <div className="mt-4 flex justify-between">
                               <div>
                                 <h3 className="text-sm text-gray-700">
-                                  <a href={product.href}>
+                                  <Link to={product.to}>
                                     <span aria-hidden="true" className="absolute inset-0" />
                                     {product.name}
-                                  </a>
+                                  </Link>
                                 </h3>
                                 <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                               </div>
