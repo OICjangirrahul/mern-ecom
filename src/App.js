@@ -4,6 +4,7 @@ import './index.css';
 import LoginPage from '../src/pages/LoginPage'
 import SignupPage from '../src/pages/SignupPage'
 import Home from '../src/pages/Home'
+import Cart from './features/cart/Cart';
 
 import {
   createBrowserRouter,
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignupPage></SignupPage>
+  },
+  {
+    path: "/cart",
+    element: <Cart></Cart>
   },
 ]);
 
