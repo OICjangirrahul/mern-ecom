@@ -1,14 +1,9 @@
-FROM node
+FROM node:latest
 
 WORKDIR /app
-
-COPY ./package*.json ./
-
-
 COPY . .
-VOLUME /app
 RUN npm install
-
 EXPOSE 3000
+
 
 CMD ["npm", "run","start"]

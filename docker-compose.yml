@@ -1,10 +1,21 @@
-version: '3'
 services:
-  my-node-app:
-    image: node:latest
-    working_dir: /app
-    volumes:
-      - /Users/rahuljangir/Git/mern-ecom:/app
+  react:
+    build: .
+    container_name: ecom
     ports:
-      - "3000:3000"
-    command: ["npm", "run", "start"]
+      - 3000:3000
+    depends_on:
+      - mongoDb
+    networks:
+      - mynetwork
+    
+  mongoDb:
+    image: "mongo"
+    container_name: ecom-db
+    ports:
+      - 27017:27017
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
